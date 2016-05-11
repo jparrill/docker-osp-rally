@@ -1,5 +1,5 @@
 FROM fedora:latest
-MAINTAINER Juan Manuel Parrilla Madrid <jparrill@redhat.com> 
+MAINTAINER Juan Manuel Parrilla Madrid <jparrill@redhat.com>
 RUN cd $HOME
 RUN dnf update -y
 RUN dnf install -y git gcc libffi-devel python-devel openssl-devel gmp-devel libxml2-devel libxslt-devel postgresql-devel redhat-rpm-config wget python-pip which
