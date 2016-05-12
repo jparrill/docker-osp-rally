@@ -1,5 +1,5 @@
 # docker-osp-rally
-Container to execute Rally tests against Openstack
+Container to execute Rally tests against Openstack based on CentOS/Fedora
 
 ## How to start
 Follow this steps to make easy the use of this container, I will asume that you already have docker installed:
@@ -22,5 +22,20 @@ docker-rally
 rally-manage db recreate   ## This will create and populate the internal DB
 rally deployment list      ## This shows you the deployment list
 ```
+
+## How to change OS base
+To change the OS base just modify the Dockerfile pointing to centos latest release and add this line:
+
+```
+FROM fedora:latest
+...
+RUN dnf update -y
+RUN dnf epel-release -y
+RUN dnf install -y git gcc libffi-devel python-devel openssl-devel gmp-devel libxml2-devel libxslt-devel postgresql-devel redhat-rpm-config wget python-pip which
+...
+...
+```
+
+Then, build the container and execute it ;)
 
 Enjoy!!
